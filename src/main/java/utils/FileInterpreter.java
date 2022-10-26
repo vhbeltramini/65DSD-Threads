@@ -23,9 +23,8 @@ public class FileInterpreter {
     }
 
     public int contarLinhas() throws IOException {
-        String ln;
         int count = 0;
-        while ((ln = this.bufferedReader.readLine()) != null) {
+        while (this.bufferedReader.readLine() != null) {
             count++;
         }
         return count;
