@@ -13,7 +13,7 @@ import java.util.List;
 public class FileController implements Subject {
 
     private File file;
-    private List<Observer> observers;
+    List<Observer> observers;
 
     public FileController() {
         observers = new ArrayList<>();
@@ -25,7 +25,7 @@ public class FileController implements Subject {
     }
 
     // por enquanto mocado
-    public List<Integer> criarMapa() throws Exception {
+    public List<Integer> criarMapa() {
         FileInterpreter fileInterpreter = new FileInterpreter(file);
         List<Integer> retorno = new ArrayList<>();
         for (int i = 2; i < fileInterpreter.contarLinhas(); i++){

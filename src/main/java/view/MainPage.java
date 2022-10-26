@@ -1,7 +1,8 @@
-package ui;
+package view;
 
 import controller.FileController;
 import observer.Observer;
+import view.MalhaViaria;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,7 +30,6 @@ public class MainPage extends JFrame implements Observer {
         jb_openFileChoser.addActionListener((ActionEvent ae) -> {
             JFileChooser jf_escolherMalha = new JFileChooser();
             jf_escolherMalha.setCurrentDirectory(new File("./roads"));
-            //atribuir a um controller o path ou algo assim para conseguir ler o arquivo e abrir a outra view
             if (jf_escolherMalha.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
                 this.controller.setFile(jf_escolherMalha.getSelectedFile());
             }

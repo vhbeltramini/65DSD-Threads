@@ -1,4 +1,4 @@
-package ui;
+package view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,5 +22,8 @@ public class MalhaViaria extends JFrame {
 
     // vai criar o frame conforme os numeros buffados
     public MalhaViaria(List<Integer> disposicaoMalha) throws HeadlessException {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(800, 400);
+        JPanel jp_painelPrincipal = new JPanel(new GridLayout());
     }
 }

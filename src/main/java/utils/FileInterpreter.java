@@ -1,32 +1,35 @@
 package utils;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileInterpreter {
 
-    BufferedReader bufferedReader;
+    List<String> linhas;
 
-    public FileInterpreter(File file) throws FileNotFoundException {
-        this.bufferedReader = new BufferedReader(new FileReader(file));
+    public FileInterpreter(File file) {
+        linhas = new ArrayList<>();
+        try {
+            preencherArray(new BufferedReader(new FileReader(file)));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
     }
 
-    public String lerLinha(int linha) throws Exception {
+    private void preencherArray(BufferedReader bufferedReader) throws IOException {
         String ln;
-        int count = 0;
-        while ((ln = this.bufferedReader.readLine()) != null) {
-            if (count == linha) {
-                return ln;
-            }
-            count++;
+        while ((ln = bufferedReader.readLine()) != null) {
+            linhas.add(ln);
         }
-        throw new Exception("Numero de linhas inferior a solicitada");
     }
 
-    public int contarLinhas() throws IOException {
-        int count = 0;
-        while (this.bufferedReader.readLine() != null) {
-            count++;
-        }
-        return count;
+    public String lerLinha(int linha) {
+        return linhas.get(linha);
+    }
+
+    public int contarLinhas() {
+        return linhas.size();
     }
 }

@@ -1,4 +1,4 @@
-import ui.MainPage;
+import view.MainPage;
 
 public class Main {
 
