@@ -5,6 +5,8 @@ import observer.Subject;
 import utils.FileInterpreter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +25,13 @@ public class FileController implements Subject {
     }
 
     // por enquanto mocado
-    public ArrayList<Integer> criarMapa() {
+    public List<Integer> criarMapa() throws Exception {
         FileInterpreter fileInterpreter = new FileInterpreter(file);
-        return new ArrayList<>();
+        List<Integer> retorno = new ArrayList<>();
+        for (int i = 2; i < fileInterpreter.contarLinhas(); i++){
+            retorno.add(Integer.getInteger(fileInterpreter.lerLinha(i)));
+        }
+        return retorno;
     }
 
     @Override

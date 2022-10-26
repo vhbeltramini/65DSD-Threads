@@ -40,6 +40,10 @@ public class MainPage extends JFrame implements Observer {
     @Override
     public void atualizar() {
         this.setVisible(false);
-        MalhaViaria malhaViaria = new MalhaViaria(this.controller.criarMapa());
+        try {
+            MalhaViaria malhaViaria = new MalhaViaria(this.controller.criarMapa());
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 }
