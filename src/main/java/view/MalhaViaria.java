@@ -20,10 +20,10 @@ public class MalhaViaria extends JFrame {
     private static final int CRUZAMENTO_DIREITA_BAIXO = 11;
     private static final int CRUZAMENTO_BAIXO_ESQUERDA = 12;
 
-    // vai criar o frame conforme os numeros buffados
-    public MalhaViaria(List<Integer> disposicaoMalha) throws HeadlessException {
+    public MalhaViaria(List<Integer> disposicaoMalha) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800, 400);
         JPanel jp_painelPrincipal = new JPanel(new GridLayout());
+        this.add(jp_painelPrincipal);
     }
 }

@@ -42,6 +42,7 @@ public class MainPage extends JFrame implements Observer {
         this.setVisible(false);
         try {
             MalhaViaria malhaViaria = new MalhaViaria(this.controller.criarMapa());
+            malhaViaria.setVisible(true);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
