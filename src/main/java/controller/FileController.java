@@ -6,18 +6,15 @@ import observer.Subject;
 import utils.FileInterpreter;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileController implements Subject {
+public class FileController extends Controller {
 
     private File file;
-    List<Observer> observers;
 
     public FileController() {
-        observers = new ArrayList<>();
+        super();
     }
 
     public void setFile(File file) {
@@ -38,20 +35,4 @@ public class FileController implements Subject {
                                                    .build();
     }
 
-    @Override
-    public void addObservador(Observer observer) {
-        observers.add(observer);
-    }
-
-    @Override
-    public void removerObservador(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notificar() {
-        for (Observer observer : observers) {
-            observer.atualizar();
-        }
-    }
 }
