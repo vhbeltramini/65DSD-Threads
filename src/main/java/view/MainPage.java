@@ -2,7 +2,6 @@ package view;
 
 import controller.FileController;
 import observer.Observer;
-import view.MalhaViaria;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,7 +40,7 @@ public class MainPage extends JFrame implements Observer {
     public void atualizar() {
         this.setVisible(false);
         try {
-            MalhaViaria malhaViaria = new MalhaViaria(this.controller.criarMapa());
+            MalhaViariaView malhaViaria = new MalhaViariaView(this.controller.criarMapa());
             malhaViaria.setVisible(true);
         } catch (Exception exception) {
             System.out.println(exception.getMessage());

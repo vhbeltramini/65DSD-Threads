@@ -1,10 +1,12 @@
 package view;
 
+import model.MalhaViaria;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class MalhaViaria extends JFrame {
+public class MalhaViariaView extends JFrame {
 
     private static final int NADA = 0;
     private static final int ESTRADA_CIMA = 1;
@@ -20,7 +22,7 @@ public class MalhaViaria extends JFrame {
     private static final int CRUZAMENTO_DIREITA_BAIXO = 11;
     private static final int CRUZAMENTO_BAIXO_ESQUERDA = 12;
 
-    public MalhaViaria(List<Integer> disposicaoMalha) {
+    public MalhaViariaView(MalhaViaria malhaViaria) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800, 400);
         JPanel jp_painelPrincipal = new JPanel(new GridLayout());

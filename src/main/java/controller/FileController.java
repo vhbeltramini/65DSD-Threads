@@ -1,5 +1,6 @@
 package controller;
 
+import model.MalhaViaria;
 import observer.Observer;
 import observer.Subject;
 import utils.FileInterpreter;
@@ -25,13 +26,16 @@ public class FileController implements Subject {
     }
 
     // por enquanto mocado
-    public List<Integer> criarMapa() {
+    public MalhaViaria criarMapa() {
         FileInterpreter fileInterpreter = new FileInterpreter(file);
         List<Integer> retorno = new ArrayList<>();
-        for (int i = 2; i < fileInterpreter.contarLinhas(); i++){
+        for (int i = 2; i < fileInterpreter.contarLinhas(); i++) {
             retorno.add(Integer.getInteger(fileInterpreter.lerLinha(i)));
         }
-        return retorno;
+        return new MalhaViaria.MalhaViariaBuilder().altura(Integer.getInteger(fileInterpreter.lerLinha(0)))
+                                                   .largura(Integer.getInteger(fileInterpreter.lerLinha(1)))
+                                                   .celulas(retorno)
+                                                   .build();
     }
 
     @Override
