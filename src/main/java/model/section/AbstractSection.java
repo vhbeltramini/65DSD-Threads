@@ -6,12 +6,14 @@ import javax.swing.*;
 
 public abstract class AbstractSection {
 
-    private int row;
-    private int column;
+    protected int row;
+    protected int column;
     protected Icon icon;
     protected Car car;
     protected boolean stopCell;
     protected boolean lastCell;
+    protected int moveDirection;
+
 
     public int getRow() {
         return row;

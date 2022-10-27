@@ -41,8 +41,10 @@ public class MalhaViariaView extends JFrame {
 
     public MalhaViariaView(MalhaViaria malhaViaria) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(800, 400);
+        this.setSize(1200, 960);
+        this.setLocationRelativeTo(null);
         jp_painelPrincipal = new JPanel(new BorderLayout());
+        this.setLocationRelativeTo(null);
         this.add(jp_painelPrincipal);
         controller = MapaController.getInstance();
         controller.setMalhaViaria(malhaViaria);

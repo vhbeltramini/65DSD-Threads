@@ -1,6 +1,9 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public enum RoadTypes {
 
@@ -21,6 +24,7 @@ public enum RoadTypes {
     private int number;
     private String filePath;
     private HashMap<Integer, String> allRoadTypes = new HashMap<>();
+    private static final List<Integer> stopCells = Arrays.asList(5, 6, 7, 8, 9, 10, 11, 12);;
 
 
     private RoadTypes(int number, String filePath) {
@@ -34,6 +38,10 @@ public enum RoadTypes {
                 return roadType.toString();
         }
         return null;
+    }
+
+    public static List<Integer> getStopCells(){
+        return stopCells;
     }
 
     @Override
