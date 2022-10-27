@@ -1,31 +1,65 @@
 package view;
 
+import controller.MapaController;
 import model.MalhaViaria;
 
 import javax.swing.*;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.util.List;
 
 public class MalhaViariaView extends JFrame {
 
-    private static final int NADA = 0;
-    private static final int ESTRADA_CIMA = 1;
-    private static final int ESTRADA_DIREITA = 2;
-    private static final int ESTRADA_BAIXO = 3;
-    private static final int ESTRADA_ESQUERDA = 4;
-    private static final int CRUZAMENTO_CIMA = 5;
-    private static final int CRUZAMENTO_DIREITA = 6;
-    private static final int CRUZAMENTO_BAIXO = 7;
-    private static final int CRUZAMENTO_ESQUERDA = 8;
-    private static final int CRUZAMENTO_CIMA_DIREITA = 9;
-    private static final int CRUZAMENTO_CIMA_ESQUERDA = 10;
-    private static final int CRUZAMENTO_DIREITA_BAIXO = 11;
-    private static final int CRUZAMENTO_BAIXO_ESQUERDA = 12;
+    private JPanel jp_painelPrincipal;
+    private MapaController controller;
+
+    class MalhaModel extends AbstractTableModel {
+
+        @Override
+        public int getRowCount() {
+            return controller.getMalhaViaria().getAltura();
+        }
+
+        @Override
+        public int getColumnCount() {
+            return controller.getMalhaViaria().getLargura();
+        }
+
+        @Override
+        public Object getValueAt(int linha, int coluna) {
+            return controller.retornaCelula(linha, coluna).getIcon();
+        }
+    }
+
+    class SectionRederer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+            setIcon((ImageIcon) value);
+            return this;
+        }
+    }
 
     public MalhaViariaView(MalhaViaria malhaViaria) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800, 400);
-        JPanel jp_painelPrincipal = new JPanel(new GridLayout());
+        jp_painelPrincipal = new JPanel(new BorderLayout());
         this.add(jp_painelPrincipal);
+        controller = MapaController.getInstance();
+        controller.setMalhaViaria(malhaViaria);
+        montarGrid();
+    }
+
+    private void montarGrid() {
+        JTable jt_grid = new JTable();
+        jt_grid.setBackground(Color.black);
+        jt_grid.setModel(new MalhaModel());
+        for (int i = 0; i < jt_grid.getColumnModel().getColumnCount(); i++) {
+            jt_grid.getColumnModel().getColumn(i).setWidth(35);
+            jt_grid.getColumnModel().getColumn(i).setMaxWidth(45);
+        }
+        jt_grid.setRowHeight(32);
+        jt_grid.setShowGrid(false);
+        jt_grid.setDefaultRenderer(Object.class, new SectionRederer());
+        jp_painelPrincipal.add(jt_grid);
     }
 }

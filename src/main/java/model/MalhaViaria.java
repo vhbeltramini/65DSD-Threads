@@ -1,15 +1,20 @@
 package model;
 
+import model.section.AbstractSection;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MalhaViaria {
-    List<Integer> celulas;
+    AbstractSection[][] celulas;
+
+    // linhas
     private int altura;
+
+    // colunas
     private int largura;
 
     public MalhaViaria(MalhaViariaBuilder malhaViariaBuilder) {
-        celulas = new ArrayList<>();
         this.altura = malhaViariaBuilder.altura;
         this.largura = malhaViariaBuilder.largura;
         this.celulas = malhaViariaBuilder.celulas;
@@ -31,11 +36,15 @@ public class MalhaViaria {
         this.largura = largura;
     }
 
+    public AbstractSection[][] getCelulas() {
+        return celulas;
+    }
+
     public static class MalhaViariaBuilder {
         private int altura;
         private int largura;
 
-        private List<Integer> celulas;
+        private AbstractSection[][] celulas;
 
         public MalhaViariaBuilder altura(int altura) {
             this.altura = altura;
@@ -47,7 +56,7 @@ public class MalhaViaria {
             return this;
         }
 
-        public MalhaViariaBuilder celulas(List<Integer> celulas) {
+        public MalhaViariaBuilder celulas(AbstractSection[][] celulas) {
             this.celulas = celulas;
             return this;
         }

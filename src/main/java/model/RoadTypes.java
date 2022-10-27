@@ -4,19 +4,19 @@ import java.util.HashMap;
 
 public enum RoadTypes {
 
-    ZERO(0,"img/background.png"),
-    ONE(1,"img/seta-cima.png"),
-    TWO(2,"img/seta-direita.png"),
-    THREE(3,"img/seta-baixo.png"),
-    FOUR(4,"img/seta-esquerda.png"),
-    FIVE(5,"img/cruzamento.png"),
-    SIX(6,"img/cruzamento.png"),
-    SEVEN(7,"img/cruzamento.png"),
-    EIGHT(8,"img/cruzamento.png"),
-    NINE(9,"img/cruzamento.png"),
-    TEN(10,"img/cruzamento.png"),
-    ELEVEN(11,"img/cruzamento.png"),
-    TWELVE(12,"img/cruzamento.png");
+    NADA(0,"/background.png"),
+    ESTRADA_CIMA(1,"/seta-cima.png"),
+    ESTRADA_DIREITA(2,"/seta-direita.png"),
+    ESTRADA_BAIXO(3,"/seta-baixo.png"),
+    ESTRADA_ESQUERDA(4,"/seta-esquerda.png"),
+    CRUZAMENTO_CIMA(5,"/cruzamento.png"),
+    CRUZAMENTO_DIREITA(6,"/cruzamento.png"),
+    CRUZAMENTO_BAIXO(7,"/cruzamento.png"),
+    CRUZAMENTO_ESQUERDA(8,"/cruzamento.png"),
+    CRUZAMENTO_CIMA_DIREITA(9,"/cruzamento.png"),
+    CRUZAMENTO_CIMA_ESQUERDA(10,"/cruzamento.png"),
+    CRUZAMENTO_DIREITA_BAIXO(11,"/cruzamento.png"),
+    CRUZAMENTO_BAIXO_ESQUERDA(12,"/cruzamento.png");
 
     private int number;
     private String filePath;
